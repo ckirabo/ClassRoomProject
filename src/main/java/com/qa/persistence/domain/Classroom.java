@@ -19,13 +19,13 @@ public class Classroom {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	@Id
-	private int classroomId;
+	private Integer classroomId;
 	
 	
 	private String trainerFirstName;
 	
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "classroomId", cascade = CascadeType.ALL)
-	private Collection<Trainer> trainers = new LinkedHashSet<Trainer>(); 
+	private Collection<Trainee> trainees = new LinkedHashSet<Trainee>(); 
 		
 	public Classroom() {
 		

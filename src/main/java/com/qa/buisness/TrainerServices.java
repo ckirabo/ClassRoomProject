@@ -1,9 +1,9 @@
 package com.qa.buisness;
 
 public interface TrainerServices {
-	String getAllTrainers();
-	String getATrainer(int id);
-	String createTrainer(String trainer);
-	String deleteTrainer(int id);
-	String updateTrainer(int id, String trainer);
+	String getAllTrainees();
+	String getATrainee(int id);
+	String createTrainee(String trainer);
+	String deleteTrainee(int id);
+	String updateTrainee(int id, String trainer);
 }

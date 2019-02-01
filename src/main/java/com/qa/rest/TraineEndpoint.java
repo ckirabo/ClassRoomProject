@@ -13,46 +13,46 @@ import com.qa.buisness.TrainerServices;
 
 
 
-@Path("/Trainer")
-public class TrainerEndpoint {
+@Path("/Trainee")
+public class TraineEndpoint {
 
 	@Inject 
-	private TrainerServices trainerInterface;
+	private TrainerServices traineeInterface;
 	
 	@GET
-	@Path("/allTrainers")
+	@Path("/allTrainee")
 	@Produces({ "application/json" })
 	public String getAllAccounts() {
-		return trainerInterface.getAllTrainers();
+		return traineeInterface.getAllTrainees();
 	}
 	
 	@GET
-	@Path("/getATrainer/{id}")
+	@Path("/getATrainee/{id}")
 	@Produces({ "application/json" })
 	public String getATrainer(@PathParam("id") int id) {
-		return trainerInterface.getATrainer(id);
+		return traineeInterface.getATrainee(id);
 	}
 	
 	
 	@POST
-	@Path("/createTrainer")
+	@Path("/createTrainee")
 	@Produces({ "application/json" })
-	public String createAccount(String trainer) {
-		return trainerInterface.createTrainer(trainer);
+	public String createAccount(String trainee) {
+		return traineeInterface.createTrainee(trainee);
 	}
 	
 	@DELETE
-	@Path("/deleteTrainer/{id}")
+	@Path("/deleteTrainee/{id}")
 	@Produces({ "application/json" })
 	public String deleteAccount(@PathParam("id") int id) {
-		return trainerInterface.deleteTrainer(id);
+		return traineeInterface.deleteTrainee(id);
 	}
 
 	@PUT
-	@Path("/updateTrainer/{id}")
+	@Path("/updateTrainee/{id}")
 	@Produces({ "application/json" })
-	public String deleteAccount(@PathParam("id") int id, String trainer) {
-		return trainerInterface.updateTrainer(id, trainer);
+	public String deleteAccount(@PathParam("id") int id, String trainee) {
+		return traineeInterface.updateTrainee(id, trainee);
 	}
 	
 	
