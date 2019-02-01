@@ -12,9 +12,8 @@ import javax.persistence.Table;
 public class Trainer {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	@Id
-	private int id;
+	private Integer id;
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -22,12 +21,14 @@ public class Trainer {
 	@Column(name = "last_name")
 	private String lastName;
 	
+	private Integer classroomId;
 
 	public Trainer() {
 
 	}
 	
-	public Trainer(String vfirstName, String vlastName) {
+	public Trainer(Integer vClassroomId, String vfirstName, String vlastName ) {
+		this.setClassroomId(vClassroomId);
 		this.firstName = vfirstName;
 		this.lastName = vlastName;
 	}
@@ -54,6 +55,14 @@ public class Trainer {
 
 	public String getTrainer() {
 		return firstName + " " + lastName;
+	}
+
+	public Integer getClassroomId() {
+		return classroomId;
+	}
+
+	public void setClassroomId(Integer classroomId) {
+		this.classroomId = classroomId;
 	}
 
 }
