@@ -27,7 +27,7 @@ public class TrainerEndpoint {
 	}
 	
 	@GET
-	@Path("/getATrainer")
+	@Path("/getATrainer/{id}")
 	@Produces({ "application/json" })
 	public String getATrainer(@PathParam("id") int id) {
 		return trainerInterface.getATrainer(id);
