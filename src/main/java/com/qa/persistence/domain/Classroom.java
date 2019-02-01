@@ -19,21 +19,11 @@ public class Classroom {
 	@Id
 	private int id;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "Trainer", orphanRemoval = true)
-	private Collection trainers;
 	
+		
 	public Classroom() {
 		
 	}
 
-	public Collection getTrainers() {
-		return trainers;
-	}
-
-	public void setTrainers(Collection trainers) {
-		this.trainers = trainers;
-	}
-	
-	
 	
 }

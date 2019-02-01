@@ -1,3 +1,3 @@
-INSERT INTO ACCOUNT (firstName, lastName, accountNumber) VALUES ('John', 'Doe', '1234')
-INSERT INTO ACCOUNT (firstName, lastName, accountNumber) VALUES ('Jane', 'Doe', '1235')
-INSERT INTO ACCOUNT (firstName, lastName, accountNumber) VALUES ('Jim', 'Taylor', '1236')
+INSERT INTO TRAINER (first_name, last_name) VALUES ('Dale', 'Carr')
+INSERT INTO TRAINER (first_name, last_name) VALUES ('Matt', 'Hunt')
+INSERT INTO TRAINER (first_name, last_name) VALUES ('Chester', 'Hmmm')

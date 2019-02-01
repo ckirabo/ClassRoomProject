@@ -1,10 +1,9 @@
-package com.qa.persistence.repository;
+package com.qa.buisness;
 
-public interface TrainerRepository {
-
+public interface TrainerServices {
 	String getAllTrainers();
 	String getATrainer(int id);
 	String createTrainer(String trainer);
-	String deleteTrainert(int id);
+	String deleteTrainer(int id);
 	String updateTrainer(int id, String trainer);
 }
