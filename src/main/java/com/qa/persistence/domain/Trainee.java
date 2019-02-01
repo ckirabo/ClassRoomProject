@@ -8,13 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Trainer")
-public class Trainer {
+@Table(name = "Trainee")
+public class Trainee {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	@Id
-	private int id;
+	private Integer id;
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -22,24 +21,26 @@ public class Trainer {
 	@Column(name = "last_name")
 	private String lastName;
 	
+	private Integer classroomId;
 
-	public Trainer() {
+	public Trainee() {
 
 	}
 	
-	public Trainer(String vfirstName, String vlastName) {
+	public Trainee(Integer vClassroomId, String vfirstName, String vlastName ) {
+		this.classroomId = vClassroomId;
 		this.firstName = vfirstName;
 		this.lastName = vlastName;
 	}
 	
 	
 
-	public String getTrainerName() {
+	public String getTraineeName() {
 		return firstName;
 	}
 
-	public void setTrainerName(String trainerName) {
-		this.firstName = trainerName;
+	public void setTraineeName(String traineeName) {
+		this.firstName = traineeName;
 	}
 
 
@@ -54,6 +55,14 @@ public class Trainer {
 
 	public String getTrainer() {
 		return firstName + " " + lastName;
+	}
+
+	public Integer getClassroomId() {
+		return classroomId;
+	}
+
+	public void setClassroomId(Integer classroomId) {
+		this.classroomId = classroomId;
 	}
 
 }

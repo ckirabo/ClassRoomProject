@@ -12,12 +12,12 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import com.qa.persistence.domain.Trainer;
+import com.qa.persistence.domain.Trainee;
 import com.qa.utils.JSONUtil;
 
 @Transactional(SUPPORTS)
 @Default
-public class TrainerDBImplementation implements TrainerRepository {
+public class TrainerDBImplementation implements TraineeRepository {
 
 	@PersistenceContext(unitName = "primary")
 	private EntityManager em;
@@ -25,46 +25,46 @@ public class TrainerDBImplementation implements TrainerRepository {
 	@Inject
 	private JSONUtil jsonUtil;
 
-	public String getAllTrainers() {
-		Query query = em.createQuery("SELECT t FROM Trainer t");
-		Collection<Trainer> trainers = (Collection<Trainer>) query.getResultList();
-		return jsonUtil.getJSONForObject(trainers);
+	public String getAllTrainees() {
+		Query query = em.createQuery("SELECT t FROM Trainee t");
+		Collection<Trainee> trainees = (Collection<Trainee>) query.getResultList();
+		return jsonUtil.getJSONForObject(trainees);
 	}
 
-	public String getATrainer(int id) {
-		Trainer foundTrainer = em.find(Trainer.class, id);
-		return jsonUtil.getJSONForObject(foundTrainer);
-	}
-
-	@Transactional(REQUIRED)
-	public String createTrainer(String trainer) {
-		Trainer newTrainer = jsonUtil.getObjectForJSON(trainer, Trainer.class);
-		em.persist(newTrainer);
-		return "{ \"Message\" : \"The trainer has arrived!\"}";
+	public String getATrainee(int id) {
+		Trainee foundTrainee = em.find(Trainee.class, id);
+		return jsonUtil.getJSONForObject(foundTrainee);
 	}
 
 	@Transactional(REQUIRED)
-	public String deleteTrainert(int id) {
-		Trainer thisTrainer = em.find(Trainer.class, id);
+	public String createTrainee(String trainee) {
+		Trainee newTrainee = jsonUtil.getObjectForJSON(trainee, Trainee.class);
+		em.persist(newTrainee);
+		return "{ \"Message\" : \"The trainee has arrived!\"}";
+	}
+
+	@Transactional(REQUIRED)
+	public String deleteTrainees(int id) {
+		Trainee thisTrainee = em.find(Trainee.class, id);
 		
-		if(thisTrainer != null) {
-			em.remove(thisTrainer);
-			return "{ \"Message\" : \"The trainer has been thown out !\"}";
+		if(thisTrainee != null) {
+			em.remove(thisTrainee);
+			return "{ \"Message\" : \"The trainee has been thown out !\"}";
 		}
-		return "{ \"Message\" : \"The trainer never even existed\"}";
+		return "{ \"Message\" : \"The trainee never even existed\"}";
 	}
 
 	@Transactional(REQUIRED)
-	public String updateTrainer(int id, String trainer) {
-		Trainer newTrainer =jsonUtil.getObjectForJSON(trainer, Trainer.class);
+	public String updateTrainee(int id, String trainee) {
+		Trainee newTrainee =jsonUtil.getObjectForJSON(trainee, Trainee.class);
 		
-		Trainer thisTrainer = em.find(Trainer.class, id);
+		Trainee thisTrainee = em.find(Trainee.class, id);
 		
-		if(thisTrainer != null) {
-			em.remove(thisTrainer);
-			em.persist(newTrainer);
-			return "{ \"Message\" : \"The trainer infor has been updated\"}";
+		if(thisTrainee != null) {
+			em.remove(thisTrainee);
+			em.persist(newTrainee);
+			return "{ \"Message\" : \"The trainee info has been updated\"}";
 		}
-		return "{ \"Message\" : \"Returned the Account\"}";
+		return "{ \"Message\" : \"Returned the trainee\"}";
 	}
 }

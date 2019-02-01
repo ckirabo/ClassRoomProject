@@ -2,38 +2,34 @@ package com.qa.buisness;
 
 import javax.inject.Inject;
 
-import com.qa.persistence.repository.TrainerRepository;
-import com.qa.utils.JSONUtil;
+import com.qa.persistence.repository.TraineeRepository;
+
 
 public class BusinessLogicTrainer implements TrainerServices {
 
 	@Inject
-	private TrainerRepository tRepo;
+	private TraineeRepository tRepo;
 
-	@Inject
-	private JSONUtil json;
-
-	public String getAllTrainers() {
-		return tRepo.getAllTrainers();
+	public String getAllTrainees() {
+		return tRepo.getAllTrainees();
 	}
-
-	public String getATrainer(int id) {
-		return tRepo.getATrainer(id);
-	}
-
-	public String createTrainer(String trainer) {
 	
-		return tRepo.createTrainer(trainer);
+	public String getATrainee(int id) {
+		return tRepo.getATrainee(id);
 	}
 
-	public String deleteTrainer(int id) {
-		// TODO Auto-generated method stub
-		return tRepo.deleteTrainert(id);
+	public String createTrainee(String trainee) {
+		return tRepo.createTrainee(trainee);
 	}
 
-	public String updateTrainer(int id, String trainer) {
-		// TODO Auto-generated method stub
-		return tRepo.updateTrainer(id, trainer);
+	public String deleteTrainee(int id) {
+		return tRepo.deleteTrainees(id);
 	}
+
+	public String updateTrainee(int id, String trainee) {
+		return tRepo.updateTrainee(id, trainee);
+	}
+
+
 
 }
